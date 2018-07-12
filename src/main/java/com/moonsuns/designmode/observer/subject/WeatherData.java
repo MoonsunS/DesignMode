@@ -31,21 +31,36 @@ public class WeatherData implements Observable
     }
 
     @Override
-    public void registerObserver(Observer observer)
+    public void addObserver(Observer observer)
     {
-        if (observer != null)
+        if (observer == null)
         {
-            observers.add(observer);
+            return;
         }
+
+        if (observers.contains(observer))
+        {
+            return;
+        }
+
+        observers.add(observer);
     }
 
     @Override
     public void removeObserver(Observer observer)
     {
-        if (observer != null)
+        if (observer == null)
         {
-            observers.remove(observer);
+            return;
         }
+
+        observers.remove(observer);
+    }
+
+    @Override
+    public void removeAllObserver()
+    {
+        observers.clear();
     }
 
     @Override
@@ -55,16 +70,43 @@ public class WeatherData implements Observable
     }
 
     @Override
-    public void notifyObservers(Object args)
+    public void notifyObservers(Object data)
     {
-        if(isChanged)
+        if (!isChanged)
         {
-            for(Observer observer : observers)
-            {
-                observer.update(this, args);
-            }
-            isChanged = false;
+            return;
         }
+
+        for (Observer observer : observers)
+        {
+            observer.update(this, data);
+        }
+
+        isChanged = false;
+    }
+
+    @Override
+    public void notifyObserver(Observer observer)
+    {
+        notifyObserver(observer, null);
+    }
+
+    @Override
+    public void notifyObserver(Observer observer, Object data)
+    {
+        if (!isChanged)
+        {
+            return;
+        }
+
+        if (observer == null)
+        {
+            return;
+        }
+
+        observer.update(this, data);
+
+        isChanged = false;
     }
 
     private void setChanged()
@@ -83,6 +125,6 @@ public class WeatherData implements Observable
     private void measurementsChanged()
     {
         setChanged();
-        notifyObservers();
+        notifyObservers(null);
     }
 }

@@ -14,7 +14,7 @@ public class CurrentConditionDisplay implements Observer
     public CurrentConditionDisplay(Observable observable)
     {
         this.weatherCenter = observable;
-        weatherCenter.registerObserver(this);
+        weatherCenter.addObserver(this);
     }
 
     public void unregisterObserver()

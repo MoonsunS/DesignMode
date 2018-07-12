@@ -5,7 +5,9 @@ import com.moonsuns.designmode.observer.subject.Observable;
 public interface Observer
 {
     /***
-     * 当通知时调用的方法
+     *
+     * @param observable 通知者
+     * @param data 通知者传递给观察者的数据
      */
-    void update(Observable observable, Object args);
+    void update(Observable observable, Object data);
 }
