@@ -27,19 +27,19 @@ public interface Observable
     void notifyObservers();
 
     /***
-     * 通知所有的观察者
+     * 通知所有的观察者，使用"推"或"拉"的方式
      * @param data 要通知给观察者的数据
      */
     void notifyObservers(Object data);
 
     /***
-     * 单独通知某一个观察者
+     * 单独通知某一个观察者，使用"拉"的方式
      * @param observer 指定的观察者
      */
     void notifyObserver(Observer observer);
 
     /***
-     * 单独通知某一个观察者
+     * 单独通知某一个观察者，使用"推"或"拉"的方式
      * @param observer 指定的观察者
      * @param data 要通知给观察者的数据
      */

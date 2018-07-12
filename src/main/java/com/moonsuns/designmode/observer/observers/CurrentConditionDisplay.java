@@ -11,6 +11,9 @@ public class CurrentConditionDisplay implements Observer
 
     private double humidity;
 
+    public CurrentConditionDisplay()
+    {}
+
     public CurrentConditionDisplay(Observable observable)
     {
         this.weatherCenter = observable;
@@ -36,7 +39,7 @@ public class CurrentConditionDisplay implements Observer
         }
     }
 
-    private void display()
+    public void display()
     {
         System.out.println("Current conditions: " + this.temperature + "degrees and " + this.humidity + "% humidity");
     }

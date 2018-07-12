@@ -125,6 +125,6 @@ public class WeatherData implements Observable
     private void measurementsChanged()
     {
         setChanged();
-        notifyObservers(null);
+        notifyObservers();
     }
 }
