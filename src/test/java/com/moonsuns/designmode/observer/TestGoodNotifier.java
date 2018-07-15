@@ -5,7 +5,6 @@ import com.moonsuns.designmode.observer.notifier.Notifier;
 import com.moonsuns.designmode.observer.observers.CurrentConditionDisplay;
 import com.moonsuns.designmode.observer.observers.Observer;
 import com.moonsuns.designmode.observer.subject.Observable;
-import com.moonsuns.designmode.observer.subject.WeatherData;
 
 public class TestGoodNotifier
 {
