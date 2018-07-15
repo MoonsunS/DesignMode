@@ -12,7 +12,8 @@ public class CurrentConditionDisplay implements Observer
     private double humidity;
 
     public CurrentConditionDisplay()
-    {}
+    {
+    }
 
     public CurrentConditionDisplay(Observable observable)
     {
@@ -30,7 +31,7 @@ public class CurrentConditionDisplay implements Observer
     {
         //可以选择"推"的方式，读取args
         //也可以选择"拉"的方式，读取observable
-        if(observable instanceof WeatherData)
+        if (observable instanceof WeatherData)
         {
             WeatherData center = (WeatherData) observable;
             this.temperature = center.getTemperature();
